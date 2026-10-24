@@ -1,20 +1,22 @@
 name: CI
 
-on: pull_request
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
-    initial_test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Check out repository
-              uses: actions/checkout@v4
-            - name: Install UV
-              uses: astral-sh/setup-uv@v6
-              with:
-                enable-cache: true            #    cache packages so later runs are faster
-            - run: uv sync --frozen           #  install exactly what uv.lock says
-            - run: uv run pytest              #  run the tests
-         
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
 
+      - name: Install the deps
+        run: uv sync --frozen
 
+      - name: Run tests
+        run: uv run pytest
