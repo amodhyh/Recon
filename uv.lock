@@ -3322,6 +3322,8 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "pytest" },
+]
+eval = [
     { name = "ragas" },
 ]
 
@@ -3338,10 +3340,8 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "pytest", specifier = ">=9.1.1" },
-    { name = "ragas", specifier = ">=0.4.3" },
-]
+dev = [{ name = "pytest", specifier = ">=9.1.1" }]
+eval = [{ name = "ragas", specifier = ">=0.4.3" }]
 
 [[package]]
 name = "referencing"
