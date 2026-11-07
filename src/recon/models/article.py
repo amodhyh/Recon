@@ -1,10 +1,11 @@
 from datetime import datetime
-
-from pydantic import BaseModel
+from typing import Annotated
+from pydantic import BaseModel,Field
+from .company import Company
 
 
 class Article(BaseModel):
-    competitor: str
+    competitor: Annotated[Company,Field(description="Competing Company")]
     title: str
     url: str
     summary: str = ""
