@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
-
+from langchain_community.llms import llamacpp
 load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=True)
 
 LLM_NAME = os.getenv("LLM_NAME")
