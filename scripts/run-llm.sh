@@ -3,7 +3,8 @@
 # Exit immediately if any command fails
 set -e
 
-ENV_FILE="/home/amodh/projects/Recon/.env"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="${ENV_FILE:-"$SCRIPT_DIR/../.env"}"
 
 if [ -f "$ENV_FILE" ]; then
     set -a

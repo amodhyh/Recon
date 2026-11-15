@@ -1,16 +1,4 @@
-import os
-from pathlib import Path
-
-from dotenv import load_dotenv
-from langchain_community.llms import llamacpp
-load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=True)
-
-LLM_NAME = os.getenv("LLM_NAME")
-LLM_PROVIDER = os.getenv("LLM_PROVIDER")
-
-
-def get_llm():
-    return init_chat_model(model=LLM_NAME, model_provider=LLM_PROVIDER)
+from recon.config import get_llm
 
 
 def main():
