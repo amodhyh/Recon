@@ -8,5 +8,5 @@ class Company(BaseModel):
         str, Field(min_length=1, max_length=60, description="Company name")
     ]
     domains: Annotated[
-        list[str], Field(min_length=1, max_length=30, description="Company domains")
-    ]
+        list[str] | None, Field(min_length=1, max_length=30, description="Company domains")
+    ] = None

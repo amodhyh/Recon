@@ -9,4 +9,4 @@ class Article(BaseModel):
     title: str
     url: str
     summary: str = ""
-    published: datetime | None = None
+    published: datetime |  None = None
