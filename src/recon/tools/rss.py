@@ -12,7 +12,7 @@ import logging
 rss_logger=logging.getLogger(name="rss-logger")
 
 @tool   
-def fetch_feed(
+async def fetch_feed(
     company: Annotated[Company, Field(description="Company to search recent news for")],
     days_before: Annotated[
         int, Field(ge=1, le=30, description="Only include articles from the last N days")
