@@ -12,7 +12,7 @@ def merge_unique_strings(current: list[str], update: list[str]) -> list[str]:
     return current + [item for item in update if item not in seen]
 
 class AgentState(BaseModel):
-    messages: Annotated[Sequence[AnyMessage], add_messages] 
+    messages: Annotated[Sequence[AnyMessage], add_messages] = Field(default_factory=list)
     competitors: Annotated[list[str], merge_unique_strings] = Field(default_factory=list)
     articles: Annotated[list[Article], operator.add] = Field(default_factory=list)
     retrieved_docs: Annotated[list[Document], operator.add] = Field(default_factory=list) 

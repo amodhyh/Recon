@@ -8,6 +8,8 @@ def fetcher(state: AgentState):
     tool and create the Ariticle Object and pass to the next agent
     """
     
-    llm_with_tools = get_llm("llama_cpp").bind_tools([fetch_feed])
+    llm_with_tools = get_llm().bind_tools([fetch_feed])
     
     response= llm_with_tools.invoke(state.messages)
+    
+    return({"messages":[response]})
